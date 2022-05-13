@@ -11,7 +11,7 @@ router.post("/member/login", controllers.api.v1.memberController.login);
 router.get("/cars", controllers.api.v1.carController.listCar);
 router.post("/cars", controllers.api.v1.authController.adminAuthorize, controllers.api.v1.carController.createCar);
 router.put("/cars/:id", controllers.api.v1.authController.adminAuthorize, controllers.api.v1.carController.updateCar);
-router.delete("/cars/:id", controllers.api.v1.adminController.adminAuthorize, controllers.api.v1.carController.deleteCar);
+router.delete("/cars/:id", controllers.api.v1.authController.adminAuthorize, controllers.api.v1.carController.deleteCar);
 router.get("/user", controllers.api.v1.authController.authorize, controllers.api.v1.authController.whoAmI);
 
 router.use(controllers.api.main.onError);

@@ -1,8 +1,3 @@
-/**
- * @file contains function that handle trivial request
- * @author Fikri Rahmat Nurhidayat
- */
-
 module.exports = {
   onLost(req, res) {
     res.status(404).json({
