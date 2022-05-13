@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Car.init({
     name: DataTypes.STRING,
+    isDelete: DataTypes.BOOLEAN,
     created_by: DataTypes.STRING,
     deleted_by: DataTypes.STRING,
     updated_by: DataTypes.STRING

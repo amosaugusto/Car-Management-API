@@ -13,12 +13,4 @@ module.exports = {
       },
     });
   },
-  create(superAdmin) {
-    return Superadmin.create({
-      email: superAdmin.email,
-      password: superAdmin.password,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    });
-  },
 };

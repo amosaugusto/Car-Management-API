@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const controllers = require("../app/controllers");
 
-router.post("/superadmin/add", controllers.api.v1.superAdminController.createSuperAdmin);
 router.post("/superadmin/login", controllers.api.v1.superAdminController.login);
 router.post("/superadmin/admin/add", controllers.api.v1.authController.superAdminAuthorize, controllers.api.v1.adminController.createAdmin);
 router.post("/admin/login", controllers.api.v1.adminController.login);

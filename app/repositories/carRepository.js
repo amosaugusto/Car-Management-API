@@ -11,8 +11,8 @@ module.exports = {
   getAll() {
     return Car.findAll({
       where: {
-        deleted_by: {
-          [Op.eq]: null,
+        isDelete: {
+          [Op.eq]: false,
         },
       },
     });
@@ -20,6 +20,7 @@ module.exports = {
   create(car) {
     return Car.create({
       name: car.name,
+      isDelete: false,
       created_by: car.createdBy,
       deleted_by: null,
       updated_by: car.createdBy,
@@ -49,6 +50,7 @@ module.exports = {
     }).then((deletedCar) => {
       if (!deletedCar) return res.status(404).send();
       deletedCar.update({
+        isDelete: true,
         deleted_by: car.deletedBy,
         updatedAt: new Date(),
       });

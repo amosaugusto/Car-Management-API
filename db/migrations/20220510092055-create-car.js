@@ -11,6 +11,10 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      isDelete: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       created_by: {
         type: Sequelize.STRING
       },

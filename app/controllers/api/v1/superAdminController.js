@@ -3,23 +3,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const secretKey = "secret";
 
-const createSuperAdmin = async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const superAdmin = {
-        email: req.body.email,
-        password: hashedPassword,
-    };
-    try {
-        await superAdminService.create(superAdmin);
-        res.status(201).json({
-            message: "SuperAdmin Created",
-            data: superAdmin,
-        });
-    } catch (error) {
-        res.status(400).send(error);
-    }
-};
-
 const login = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -50,5 +33,4 @@ const login = async (req, res) => {
 
 module.exports = {
     login,
-    createSuperAdmin
 };

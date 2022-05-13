@@ -15,6 +15,7 @@ const listCar = async (req, res) => {
 const createCar = async (req, res) => {
     const car = {
         name: req.body.name,
+        isDelete: false,
         createdBy: req.user.email
     };
     try {
@@ -48,6 +49,7 @@ const updateCar = async (req, res) => {
 const deleteCar = async (req, res) => {
     const car = {
         id: req.params.id,
+        isDelete: true,
         deletedBy: req.user.email,
     };
     try {

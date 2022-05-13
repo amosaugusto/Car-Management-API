@@ -7,7 +7,4 @@ module.exports = {
     findByEmail(email) {
         return superAdminRepository.getByEmail(email);
     },
-    create(superAdmin) {
-        return superAdminRepository.create(superAdmin);
-    },
 }
