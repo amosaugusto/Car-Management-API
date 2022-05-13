@@ -1,4 +1,6 @@
-const { Superadmin } = require("../models");
+const {
+  Superadmin
+} = require("../models");
 
 module.exports = {
   getById(id) {
@@ -9,6 +11,14 @@ module.exports = {
       where: {
         email,
       },
+    });
+  },
+  create(superAdmin) {
+    return Superadmin.create({
+      email: superAdmin.email,
+      password: superAdmin.password,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
   },
 };

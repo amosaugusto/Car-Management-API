@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const secretKey = "secret";
 
 const createAdmin = async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.passwordm, 10);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const admin = {
         email: req.body.email,
         password: hashedPassword,

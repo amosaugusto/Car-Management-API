@@ -1,5 +1,10 @@
-const { Car } = require("../models");
-const { Op, DATE } = require("sequelize");
+const {
+  Car
+} = require("../models");
+const {
+  Op,
+  DATE
+} = require("sequelize");
 const res = require("express/lib/response");
 
 module.exports = {
@@ -17,7 +22,7 @@ module.exports = {
       name: car.name,
       created_by: car.createdBy,
       deleted_by: null,
-      last_updated_by: car.createdBy,
+      updated_by: car.createdBy,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -31,7 +36,7 @@ module.exports = {
       if (!updatedCar) return res.status(404).send();
       updatedCar.update({
         name: car.name,
-        last_updated_by: car.updatedBy,
+        updated_by: car.updatedBy,
         updatedAt: new Date(),
       });
     });

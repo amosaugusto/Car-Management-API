@@ -27,7 +27,7 @@ const authorize = async (req, res, next) => {
 
 const superAdminAuthorize = async (req, res, next) => {
     try {
-        const bearerToken = req.header.authorization;
+        const bearerToken = req.headers.authorization;
         const token = bearerToken.split(" ")[1];
         const tokenPayload = jwt.verify(token, secretKey);
         if (tokenPayload.role !== "Superadmin") {
@@ -43,7 +43,7 @@ const superAdminAuthorize = async (req, res, next) => {
 
 const adminAuthorize = async (req, res, next) => {
     try {
-        const bearerToken = req.header.authorization;
+        const bearerToken = req.headers.authorization;
         const token = bearerToken.split(" ")[1];
         const tokenPayload = jwt.verify(token, secretKey);
         if (tokenPayload.role === "Superadmin") {
@@ -53,6 +53,7 @@ const adminAuthorize = async (req, res, next) => {
         } else {
             throw new Error()
         }
+        next();
     } catch (error) {
         res.status(401).send({
             message: "Unauthorized",

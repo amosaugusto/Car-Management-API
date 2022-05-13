@@ -48,7 +48,7 @@ const updateCar = async (req, res) => {
 const deleteCar = async (req, res) => {
     const car = {
         id: req.params.id,
-        deleteBy: req.user.email,
+        deletedBy: req.user.email,
     };
     try {
         await carService.deleteById(car);

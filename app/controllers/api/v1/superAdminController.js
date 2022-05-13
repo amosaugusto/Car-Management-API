@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const secretKey = "secret";
 
 const createSuperAdmin = async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const superAdmin = {
         email: req.body.email,
         password: hashedPassword,
@@ -22,7 +22,7 @@ const createSuperAdmin = async (req, res) => {
 
 const login = async (req, res) => {
     const email = req.body.email;
-    const password = hashedPassword;
+    const password = req.body.password;
 
     const user = await superAdminService.findByEmail(email);
     if (!user) {
