@@ -14,5 +14,5 @@ Repository ini menggunakan Service Repository Pattern, yang artinya di dalam rep
 ## Open API Documentation
 
 ```http
-GET http://localhost:5000/api/docs
+https://documenter.getpostman.com/view/20463185/Uyxhoni8
 ```
